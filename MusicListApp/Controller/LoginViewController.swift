@@ -8,12 +8,22 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        textField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {  //returnkeyでキーボードを閉じる
+        textField.resignFirstResponder()
+        
+        return true
     }
     
 
